@@ -10,6 +10,7 @@
         <p>{{ p.body }}</p>
       </div>
       <Tags :tags="post.tags" />
+      <Comments :comments="comments" />
     </div>
   </div>
 </template>
@@ -24,6 +25,7 @@ export default {
     const route = useRoute();
     const id = computed(() => route.value.params.id);
     const post = ref(null);
+    const comments = ref([]);
 
     useFetch(async () => {
       const data = await (
@@ -31,9 +33,10 @@ export default {
       ).json();
 
       post.value = data.post;
+      comments.value = data.comments;
     });
 
-    return { post };
+    return { post, comments };
   }
 };
 </script>
