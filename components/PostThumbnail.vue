@@ -4,11 +4,15 @@
       <h2>{{ post.title }}</h2>
     </NuxtLink>
     <p>{{ post.excerpt }}</p>
+    <Tags :tags="post.tags" />
   </div>
 </template>
 
 <script>
+import Tags from "./Tags.vue";
+
 export default {
-  props: ["post"]
+  props: ["post"],
+  components: { Tags }
 };
 </script>
