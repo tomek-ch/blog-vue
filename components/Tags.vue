@@ -1,8 +1,8 @@
 <template>
   <div class="tags">
-    <div v-for="tag in tags" :key="tag">
+    <NuxtLink v-for="tag in tags" :key="tag" :to="`/tagged/${tag}`">
       {{ tag }}
-    </div>
+    </NuxtLink>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
   flex-wrap: wrap;
 }
 
-.tags div {
+.tags a {
   padding: 0.5em;
   border-radius: 5px;
   background-color: lightgray;
