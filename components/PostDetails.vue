@@ -1,10 +1,12 @@
 <template>
   <div>
     {{ post.readTime === 0 ? "Less than a min" : `${post.readTime} min read` }}
-    •
-    <NuxtLink :to="`/users/${post.author._id}`"
-      >{{ post.author.firstName }} {{ post.author.lastName }}</NuxtLink
-    >
+    <span v-if="post.author.username">
+      •
+      <NuxtLink :to="`/users/${post.author.username}`"
+        >{{ post.author.firstName }} {{ post.author.lastName }}</NuxtLink
+      >
+    </span>
     • {{ post.time }}
   </div>
 </template>
