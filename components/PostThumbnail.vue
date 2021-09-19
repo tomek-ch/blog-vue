@@ -3,6 +3,7 @@
     <NuxtLink :to="`/posts/${post.id}`">
       <h2>{{ post.title }}</h2>
     </NuxtLink>
+    <PostDetails :post="post" />
     <p>{{ post.excerpt }}</p>
     <Tags :tags="post.tags" />
   </div>
@@ -10,9 +11,10 @@
 
 <script>
 import Tags from "./Tags.vue";
+import PostDetails from "./PostDetails.vue";
 
 export default {
   props: ["post"],
-  components: { Tags }
+  components: { Tags, PostDetails }
 };
 </script>
