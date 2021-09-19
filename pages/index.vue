@@ -1,7 +1,24 @@
 <template>
-  <h1>Hello</h1>
+  <div>
+    <h1>Hello</h1>
+    <PostThumbnail v-for="post in posts" :key="post.id" :post="post" />
+  </div>
 </template>
 
 <script>
-export default {};
+import { ref, useFetch } from "@nuxtjs/composition-api";
+import PostThumbnail from "@/components/PostThumbnail";
+
+export default {
+  components: { PostThumbnail },
+  setup() {
+    const posts = ref([]);
+
+    useFetch(async () => {
+      posts.value = await (await fetch(`${process.env.baseUrl}/posts`)).json();
+    });
+
+    return { posts };
+  }
+};
 </script>
