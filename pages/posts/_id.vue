@@ -5,6 +5,7 @@
     </div>
     <div v-else-if="post">
       <h1>{{ post.title }}</h1>
+      <PostDetails :post="post" />
       <div v-for="(p, idx) of post.paragraphs" :key="`p${idx}`">
         <h2>{{ p.heading }}</h2>
         <p>{{ p.body }}</p>
@@ -17,10 +18,11 @@
 
 <script>
 import { computed, useRoute, ref, useFetch } from "@nuxtjs/composition-api";
-import Tags from "@/components/Tags.vue";
+import Tags from "@/components/Tags";
+import PostDetails from "@/components/PostDetails";
 
 export default {
-  components: { Tags },
+  components: { Tags, PostDetails },
   setup() {
     const route = useRoute();
     const id = computed(() => route.value.params.id);
