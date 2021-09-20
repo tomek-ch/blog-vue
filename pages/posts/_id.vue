@@ -7,7 +7,11 @@
       <h1>{{ post.title }}</h1>
       <div class="details">
         <PostDetails :post="post" />
-        <PostOptions :id="post._id" :handleDelete="handleDelete" />
+        <PostOptions
+          v-if="post.author._id === user._id"
+          :id="post._id"
+          :handleDelete="handleDelete"
+        />
       </div>
       <div v-for="(p, idx) of post.paragraphs" :key="`p${idx}`">
         <h2>{{ p.heading }}</h2>
@@ -30,6 +34,7 @@ import {
 import Tags from "@/components/Tags";
 import PostDetails from "@/components/PostDetails";
 import PostOptions from "@/components/PostOptions";
+import { user } from "@/auth/store";
 
 export default {
   components: { Tags, PostDetails, PostOptions },
@@ -52,7 +57,7 @@ export default {
       comments.value = data.comments;
     });
 
-    return { post, comments, handleDelete };
+    return { post, comments, handleDelete, user };
   }
 };
 </script>
