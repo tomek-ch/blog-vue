@@ -4,7 +4,7 @@
     <div v-if="open">
       <div v-for="option in options" :key="option.text">
         <button
-          v-if="option.btn"
+          v-if="option.onClick"
           @click="handleBtnClick(option.onClick)"
           data-option="true"
           @blur="toggle"

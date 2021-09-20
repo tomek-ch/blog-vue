@@ -16,11 +16,7 @@ export default {
       options: [
         { text: "New post", to: "/new" },
         { text: "View profile", to: `/users/${username}` },
-        {
-          text: "Sign out",
-          btn: true,
-          onClick: signOut
-        }
+        { text: "Sign out", onClick: signOut }
       ]
     };
   }
