@@ -1,6 +1,6 @@
 import { ref } from "@nuxtjs/composition-api";
 
-const user = ref(null);
+const user = ref({});
 const token = ref(null);
 
 const signIn = data => {

@@ -11,6 +11,7 @@
 import { ref, useRouter } from "@nuxtjs/composition-api";
 import { token } from "@/auth/store";
 import limitLength from "@/utils/limitLength";
+import useProtectedRoute from "@/composables/useProtectedRoute";
 
 export default {
   setup() {
@@ -53,6 +54,7 @@ export default {
       }
     };
 
+    useProtectedRoute();
     return {
       handleSubmit,
       title,

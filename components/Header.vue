@@ -5,7 +5,7 @@
         Blogg
       </h1>
     </NuxtLink>
-    <UserOptions v-if="user" />
+    <UserOptions v-if="user && user._id" />
     <div v-else>
       <NuxtLink to="/login">
         Log in
