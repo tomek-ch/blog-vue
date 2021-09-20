@@ -16,6 +16,7 @@
 <script>
 import { ref } from "@nuxtjs/composition-api";
 import { signIn } from "@/auth/store";
+import useGuestRoute from "@/composables/useGuestRoute";
 
 export default {
   setup() {
@@ -48,6 +49,7 @@ export default {
       }
     };
 
+    useGuestRoute();
     return { username, password, error, handleSubmit };
   }
 };
