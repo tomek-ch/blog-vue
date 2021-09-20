@@ -5,10 +5,7 @@
         Blogg
       </h1>
     </NuxtLink>
-    <div v-if="user">
-      {{ user.username }}
-      <button @click="signOut">Sign out</button>
-    </div>
+    <UserOptions v-if="user" />
     <div v-else>
       <NuxtLink to="/login">
         Log in
@@ -22,8 +19,11 @@
 
 <script>
 import { user, signOut } from "@/auth/store";
+import UserOptions from "./UserOptions";
 
 export default {
+  name: "Header",
+  components: { UserOptions },
   setup() {
     return { user, signOut };
   }
