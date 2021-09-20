@@ -2,7 +2,7 @@
   <form @submit="handleSubmit">
     <label>
       Username:
-      <input v-model="username" />
+      <input v-model="username" autofocus="autofocus" />
     </label>
     <label>
       Password:

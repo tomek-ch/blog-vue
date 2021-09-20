@@ -1,6 +1,6 @@
 <template>
   <form @submit="handleSubmit">
-    <input placeholder="title" v-model="title" />
+    <input placeholder="title" v-model="title" autofocus="autofocus" />
     <textarea v-model="body" />
     <button>Create post</button>
     <div>{{ error }}</div>
