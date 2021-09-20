@@ -5,5 +5,30 @@
         Blogg
       </h1>
     </NuxtLink>
+    <div v-if="user">
+      {{ user.username }}
+      <button @click="signOut">Sign out</button>
+    </div>
+    <NuxtLink v-else to="/login">
+      Log in
+    </NuxtLink>
   </header>
 </template>
+
+<script>
+import { user, signOut } from "@/auth/store";
+
+export default {
+  setup() {
+    return { user, signOut };
+  }
+};
+</script>
+
+<style>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>
