@@ -14,6 +14,7 @@ export default {
     return {
       username,
       options: [
+        { text: "New post", to: "/new" },
         { text: "View profile", to: `/users/${username}` },
         {
           text: "Sign out",

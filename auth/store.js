@@ -27,4 +27,4 @@ if (process.client) {
       .catch(signOut);
 }
 
-export { user, signIn, signOut };
+export { user, token, signIn, signOut };
