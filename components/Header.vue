@@ -9,9 +9,14 @@
       {{ user.username }}
       <button @click="signOut">Sign out</button>
     </div>
-    <NuxtLink v-else to="/login">
-      Log in
-    </NuxtLink>
+    <div v-else>
+      <NuxtLink to="/login">
+        Log in
+      </NuxtLink>
+      <NuxtLink to="/register">
+        Register
+      </NuxtLink>
+    </div>
   </header>
 </template>
 
