@@ -5,7 +5,7 @@ const useProtectedRoute = () => {
   const router = useRouter();
 
   watchEffect(() => {
-    if (!user.value?._id) {
+    if (!user) {
       router.replace("/login");
     }
   });
