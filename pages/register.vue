@@ -16,7 +16,7 @@
       Password:
       <input v-model="password" type="password" />
     </label>
-    <button>Register</button>
+    <button :disabled="!username || !password || !firstName">Register</button>
     <ul>
       <li v-for="error in errors" :key="error">
         {{ error }}

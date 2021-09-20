@@ -2,7 +2,7 @@
   <form @submit="handleSubmit">
     <input placeholder="title" v-model="title" autofocus="autofocus" />
     <textarea v-model="body" />
-    <button>Create post</button>
+    <button :disabled="!title || !body">Create post</button>
     <div>{{ error }}</div>
   </form>
 </template>
