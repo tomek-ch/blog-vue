@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Posts tagged {{ tag }}</h1>
     <div v-if="$fetchState.error">There was a network error</div>
     <PostThumbnail v-for="post in posts" :key="post.id" :post="post" />
   </div>
@@ -22,7 +23,7 @@ export default {
       ).json();
     });
 
-    return { posts };
+    return { posts, tag };
   }
 };
 </script>
