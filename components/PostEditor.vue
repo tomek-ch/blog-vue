@@ -1,5 +1,10 @@
 <template>
-  <PostEditor method="POST" label="Create post" />
+  <form @submit="handleSubmit">
+    <input placeholder="title" v-model="title" autofocus="autofocus" />
+    <textarea v-model="body" />
+    <button :disabled="!title || !body">{{ label }}</button>
+    <div>{{ error }}</div>
+  </form>
 </template>
 
 <script>
@@ -9,9 +14,11 @@ import limitLength from "@/utils/limitLength";
 import useProtectedRoute from "@/composables/useProtectedRoute";
 
 export default {
-  setup() {
-    const title = ref("");
-    const body = ref("");
+  props: ["method", "id", "post", "label"],
+  setup(props) {
+    const title = ref(props.post?.title.value || props.post?.title || "");
+    const body = ref(props.post?.body.value || props.post?.body || "");
+
     const error = ref("");
     const router = useRouter();
 
@@ -27,14 +34,17 @@ export default {
       };
 
       try {
-        const res = await fetch(`${process.env.baseUrl}/posts`, {
-          method: "post",
-          body: JSON.stringify(post),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token.value}`
+        const res = await fetch(
+          `${process.env.baseUrl}/posts/${props.id || ""}`,
+          {
+            method: props.method,
+            body: JSON.stringify(post),
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token.value}`
+            }
           }
-        });
+        );
         const data = await res.json();
 
         if (res.ok) {
