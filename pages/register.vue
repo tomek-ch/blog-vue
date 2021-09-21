@@ -61,7 +61,7 @@ export default {
           throw new Error();
         }
       } catch {
-        error.value = "There was a network error";
+        errors.value = ["There was a network error"];
       }
     };
 
