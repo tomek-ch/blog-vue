@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import PostEditor from "@/components/PostEditor";
+import PostEditor from "@/components/post/PostEditor";
 import { useRoute, computed, useFetch, ref } from "@nuxtjs/composition-api";
 
 export default {

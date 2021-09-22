@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Options from "./Options";
+import Options from "../Options";
 import { token } from "@/auth/store";
 
 export default {

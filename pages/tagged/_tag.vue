@@ -8,7 +8,7 @@
 
 <script>
 import { ref, useFetch, computed, useRoute } from "@nuxtjs/composition-api";
-import PostThumbnail from "@/components/PostThumbnail";
+import PostThumbnail from "@/components/post/PostThumbnail";
 
 export default {
   components: { PostThumbnail },

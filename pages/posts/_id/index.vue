@@ -31,9 +31,9 @@ import {
   useFetch,
   useRouter
 } from "@nuxtjs/composition-api";
-import Tags from "@/components/Tags";
-import PostDetails from "@/components/PostDetails";
-import PostOptions from "@/components/PostOptions";
+import Tags from "@/components/post/Tags";
+import PostDetails from "@/components/post/PostDetails";
+import PostOptions from "@/components/post/PostOptions";
 import { user } from "@/auth/store";
 
 export default {

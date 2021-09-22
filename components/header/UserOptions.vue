@@ -4,7 +4,7 @@
 
 <script>
 import { user, signOut } from "@/auth/store";
-import Options from "./Options";
+import Options from "../Options";
 
 export default {
   name: "UserOptions",
