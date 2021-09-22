@@ -34,10 +34,12 @@ import {
 import Tags from "@/components/post/Tags";
 import PostDetails from "@/components/post/PostDetails";
 import PostOptions from "@/components/post/PostOptions";
+import Comments from "@/components/comment/Comments";
+
 import { user } from "@/auth/store";
 
 export default {
-  components: { Tags, PostDetails, PostOptions },
+  components: { Tags, PostDetails, PostOptions, Comments },
   setup() {
     const route = useRoute();
     const id = computed(() => route.value.params.id);
