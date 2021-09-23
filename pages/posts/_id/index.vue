@@ -19,7 +19,7 @@
       </div>
       <Tags :tags="post.tags" />
       <CommentForm :comments="comments" :post="post._id" :user="user" />
-      <Comments :comments="comments" />
+      <Comments @delete-comment="deleteComment" :comments="comments" />
     </div>
   </div>
 </template>
@@ -50,6 +50,9 @@ export default {
     const router = useRouter();
     const handleDelete = () => router.replace("/");
 
+    const deleteComment = id =>
+      (comments.value = comments.value.filter(com => com._id !== id));
+
     useFetch(async () => {
       const data = await (
         await fetch(`${process.env.baseUrl}/posts/${id.value}`)
@@ -59,7 +62,7 @@ export default {
       comments.value = data.comments;
     });
 
-    return { post, comments, handleDelete, user };
+    return { post, comments, handleDelete, user, deleteComment };
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="details">
     {{ post.readTime === 0 ? "Less than a min" : `${post.readTime} min read` }}
     <span v-if="post.author.username">
       •

@@ -1,16 +1,39 @@
 <template>
   <div class="comment">
-    <div class="details">
-      {{ comment.author.firstName }} {{ comment.author.lastName }} •
-      {{ comment.time }}
+    <div class="options-section">
+      <div class="details">
+        {{ comment.author.firstName }} {{ comment.author.lastName }} •
+        {{ comment.time }}
+      </div>
+      <CommentOptions
+        :isEditable="isEditable"
+        :id="comment._id"
+        :handleDelete="handleDelete"
+        @delete-comment="$emit('delete-comment')"
+      />
     </div>
     <div>{{ comment.text }}</div>
   </div>
 </template>
 
 <script>
+import { ref } from "@vue/composition-api";
+import CommentOptions from "./CommentOptions";
+
 export default {
-  props: ["comment"]
+  props: ["comment", "comments"],
+  components: { CommentOptions },
+  emits: ["delete-comment"],
+  setup(props) {
+    const isEditable = ref(false);
+
+    const handleDelete = () =>
+      (props.comments = props.comments.filter(
+        com => com._id !== props.comment._id
+      ));
+
+    return { isEditable, handleDelete };
+  }
 };
 </script>
 

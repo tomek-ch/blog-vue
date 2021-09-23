@@ -12,3 +12,8 @@ body {
   font-size: 0.9em;
   color: #666;
 }
+
+.options-section {
+  display: flex;
+  justify-content: space-between;
+}
