@@ -19,7 +19,11 @@
       </div>
       <Tags :tags="post.tags" />
       <CommentForm :comments="comments" :post="post._id" :user="user" />
-      <Comments @delete-comment="deleteComment" :comments="comments" />
+      <Comments
+        @delete-comment="deleteComment"
+        @edit-comment="editComment"
+        :comments="comments"
+      />
     </div>
   </div>
 </template>
@@ -53,6 +57,12 @@ export default {
     const deleteComment = id =>
       (comments.value = comments.value.filter(com => com._id !== id));
 
+    const editComment = ({ id, text }) => {
+      comments.value = comments.value.map(com =>
+        com._id === id ? { ...com, text } : com
+      );
+    };
+
     useFetch(async () => {
       const data = await (
         await fetch(`${process.env.baseUrl}/posts/${id.value}`)
@@ -62,7 +72,7 @@ export default {
       comments.value = data.comments;
     });
 
-    return { post, comments, handleDelete, user, deleteComment };
+    return { post, comments, handleDelete, user, deleteComment, editComment };
   }
 };
 </script>
