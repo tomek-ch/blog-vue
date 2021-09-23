@@ -5,7 +5,7 @@
     </div>
     <div v-else-if="post">
       <h1>{{ post.title }}</h1>
-      <div class="details">
+      <div class="post-options">
         <PostDetails :post="post" />
         <PostOptions
           v-if="post.author._id === user._id"
@@ -18,8 +18,8 @@
         <p>{{ p.body }}</p>
       </div>
       <Tags :tags="post.tags" />
-      <Comments :comments="comments" />
       <CommentForm :comments="comments" :post="post._id" />
+      <Comments :comments="comments" />
     </div>
   </div>
 </template>
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-.details {
+.post-options {
   display: flex;
   justify-content: space-between;
 }

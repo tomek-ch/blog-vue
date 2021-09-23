@@ -1,14 +1,14 @@
 <template>
   <div v-if="comments.length">
-    <h3>Comments:</h3>
-    <div v-for="com in comments" :key="com.id">
-      {{ com.text }}
-    </div>
+    <Comment v-for="com in comments" :key="com.id" :comment="com" />
   </div>
 </template>
 
 <script>
+import Comment from "./Comment.vue";
+
 export default {
-  props: ["comments"]
+  props: ["comments"],
+  components: { Comment }
 };
 </script>

@@ -16,10 +16,3 @@ export default {
   props: ["post"]
 };
 </script>
-
-<style scoped>
-div {
-  font-size: 0.9em;
-  color: #666;
-}
-</style>
