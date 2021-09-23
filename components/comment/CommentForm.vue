@@ -45,6 +45,7 @@ export default {
             ...(await res.json()),
             author: props.user
           });
+          input.value = "";
         } else if (res.status === 400) {
           error.value = (await res.json())[0];
         } else {
