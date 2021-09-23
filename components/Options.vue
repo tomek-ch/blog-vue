@@ -5,9 +5,12 @@
       <div v-for="option in options" :key="option.text">
         <button
           v-if="option.onClick"
-          @click="handleBtnClick(option.onClick)"
           data-option="true"
-          @blur="toggle"
+          @blur="hide"
+          @click="
+            hide();
+            option.onClick();
+          "
         >
           {{ option.text }}
         </button>
@@ -15,8 +18,8 @@
           v-else
           :to="option.to"
           data-option="true"
-          @blur.native="toggle"
-          @click.native="toggle"
+          @blur.native="hide"
+          @click.native="hide"
         >
           {{ option.text }}
         </NuxtLink>
@@ -33,11 +36,12 @@ export default {
   props: ["toggleText", "options"],
   setup() {
     const open = ref(false);
-    const toggle = () => (open.value = !open.value);
+    const toggle = () => {
+      open.value = !open.value;
+    };
 
     const hide = e => {
-      console.log(e.relatedTarget);
-      if (!e.relatedTarget?.dataset.option) {
+      if (!e?.relatedTarget?.dataset.option) {
         open.value = false;
       }
     };
