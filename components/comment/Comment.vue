@@ -2,7 +2,10 @@
   <div class="comment">
     <div class="options-section">
       <div class="details">
-        {{ comment.author.firstName }} {{ comment.author.lastName }} •
+        <NuxtLink :to="`/users/${comment.author.username}`">
+          {{ comment.author.firstName }} {{ comment.author.lastName }}
+        </NuxtLink>
+        •
         {{ comment.time }}
       </div>
       <CommentOptions
