@@ -5,7 +5,7 @@
     </div>
     <form v-else @submit="handleSubmit">
       <input v-model="input" placeholder="Write a comment" />
-      <button>Add</button>
+      <button :disabled="!input">Add</button>
       <div>{{ error }}</div>
     </form>
   </div>
@@ -18,7 +18,6 @@ import { token } from "@/auth/store";
 export default {
   props: ["post", "comments", "user"],
   setup(props) {
-    // console.log(props.user);
     const input = ref("");
     const error = ref("");
 
