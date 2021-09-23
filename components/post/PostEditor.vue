@@ -2,7 +2,7 @@
   <div>
     <input placeholder="title" v-model="title" autofocus="autofocus" />
     <textarea v-model="body" placeholder="Body" />
-    <TagEditor :tags="tags" @add-tag="addTag" />
+    <TagEditor :tags="tags" @add-tag="addTag" @delete-tag="deleteTag" />
     <button @click="createPost" :disabled="!title || !body">
       {{ label }}
     </button>
@@ -27,7 +27,9 @@ export default {
 
     const error = ref("");
     const router = useRouter();
+
     const addTag = tag => tags.value.push(tag);
+    const deleteTag = tag => (tags.value = tags.value.filter(t => t !== tag));
 
     const createPost = async () => {
       const post = {
@@ -69,7 +71,8 @@ export default {
       body,
       error,
       tags,
-      addTag
+      addTag,
+      deleteTag
     };
   }
 };
