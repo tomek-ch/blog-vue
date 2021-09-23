@@ -1,5 +1,10 @@
 <template>
-  <PostEditor method="PUT" label="Update" :id="id" :post="post" />
+  <PostEditor
+    v-if="!$fetchState.pending"
+    method="PUT"
+    label="Update"
+    :post="post"
+  />
 </template>
 
 <script>
@@ -11,25 +16,18 @@ export default {
   setup() {
     const route = useRoute();
     const id = computed(() => route.value.params.id);
+    const post = ref(null);
 
-    const title = ref("");
-    const body = ref("");
-
-    useFetch(async () => {
+    const { fetchState } = useFetch(async () => {
       const data = await (
         await fetch(`${process.env.baseUrl}/posts/${id.value}`)
       ).json();
-
-      title.value = data.post.title;
-      body.value = data.post.paragraphs?.[0].body;
+      post.value = data.post;
     });
 
     return {
-      id: id.value,
-      post: {
-        title,
-        body
-      }
+      post,
+      fetchState
     };
   }
 };

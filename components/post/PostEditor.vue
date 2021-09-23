@@ -1,10 +1,13 @@
 <template>
-  <form @submit="handleSubmit">
+  <div>
     <input placeholder="title" v-model="title" autofocus="autofocus" />
-    <textarea v-model="body" />
-    <button :disabled="!title || !body">{{ label }}</button>
+    <textarea v-model="body" placeholder="Body" />
+    <TagEditor :tags="tags" @add-tag="addTag" />
+    <button @click="createPost" :disabled="!title || !body">
+      {{ label }}
+    </button>
     <div>{{ error }}</div>
-  </form>
+  </div>
 </template>
 
 <script>
@@ -12,30 +15,32 @@ import { ref, useRouter } from "@nuxtjs/composition-api";
 import { token } from "@/auth/store";
 import limitLength from "@/utils/limitLength";
 import useProtectedRoute from "@/composables/useProtectedRoute";
+import TagEditor from "./TagEditor";
 
 export default {
-  props: ["method", "id", "post", "label"],
+  props: ["method", "post", "label"],
+  components: { TagEditor },
   setup(props) {
-    const title = ref(props.post?.title.value || props.post?.title || "");
-    const body = ref(props.post?.body.value || props.post?.body || "");
+    const title = ref(props.post?.title || "");
+    const body = ref(props.post?.paragraphs[0].body || "");
+    const tags = ref(props.post?.tags || []);
 
     const error = ref("");
     const router = useRouter();
+    const addTag = tag => tags.value.push(tag);
 
-    const handleSubmit = async e => {
-      e.preventDefault();
-
+    const createPost = async () => {
       const post = {
         title: title.value,
         paragraphs: [{ body: body.value }],
         excerpt: limitLength(body.value),
         isPublished: true,
-        tags: []
+        tags: tags.value
       };
 
       try {
         const res = await fetch(
-          `${process.env.baseUrl}/posts/${props.id || ""}`,
+          `${process.env.baseUrl}/posts/${props.post._id || ""}`,
           {
             method: props.method,
             body: JSON.stringify(post),
@@ -45,13 +50,11 @@ export default {
             }
           }
         );
-        const data = await res.json();
 
         if (res.ok) {
-          const { _id } = data;
-          router.push(`/posts/${_id}`);
+          router.push(`/posts/${props.post._id}`);
         } else {
-          error.value = data[0];
+          error.value = (await res.json())[0];
         }
       } catch (e) {
         console.log(e);
@@ -61,10 +64,12 @@ export default {
 
     useProtectedRoute();
     return {
-      handleSubmit,
+      createPost,
       title,
       body,
-      error
+      error,
+      tags,
+      addTag
     };
   }
 };
