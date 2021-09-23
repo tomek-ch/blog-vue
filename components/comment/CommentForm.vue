@@ -18,6 +18,7 @@ import { token } from "@/auth/store";
 export default {
   props: ["post", "comments", "user"],
   setup(props) {
+    // console.log(props.user);
     const input = ref("");
     const error = ref("");
 
@@ -40,7 +41,10 @@ export default {
         });
 
         if (res.ok) {
-          props.comments.push(await res.json());
+          props.comments.push({
+            ...(await res.json()),
+            author: props.user
+          });
         } else if (res.status === 400) {
           error.value = (await res.json())[0];
         } else {
