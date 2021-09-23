@@ -19,6 +19,7 @@
       </div>
       <Tags :tags="post.tags" />
       <Comments :comments="comments" />
+      <CommentForm :comments="comments" :post="post._id" />
     </div>
   </div>
 </template>
