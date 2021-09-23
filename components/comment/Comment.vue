@@ -6,6 +6,7 @@
         {{ comment.time }}
       </div>
       <CommentOptions
+        v-if="comment.author._id === user._id"
         :isEditable="isEditable"
         :id="comment._id"
         :handleDelete="handleDelete"
@@ -19,6 +20,7 @@
 <script>
 import { ref } from "@vue/composition-api";
 import CommentOptions from "./CommentOptions";
+import { user } from "@/auth/store";
 
 export default {
   props: ["comment", "comments"],
@@ -32,7 +34,7 @@ export default {
         com => com._id !== props.comment._id
       ));
 
-    return { isEditable, handleDelete };
+    return { isEditable, handleDelete, user };
   }
 };
 </script>
