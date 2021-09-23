@@ -5,10 +5,10 @@
     </div>
     <div v-else-if="post">
       <h1>{{ post.title }}</h1>
-      <div class="post-options">
+      <div class="options-section">
         <PostDetails :post="post" />
         <PostOptions
-          v-if="post.author._id === user._id"
+          v-if="user && post.author._id === user._id"
           :id="post._id"
           :handleDelete="handleDelete"
         />
@@ -64,10 +64,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.post-options {
-  display: flex;
-  justify-content: space-between;
-}
-</style>
