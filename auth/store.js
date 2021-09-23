@@ -18,13 +18,16 @@ const signOut = () => {
 if (process.client) {
   token.value = localStorage.getItem("token");
 
-  if (token.value)
+  if (token.value) {
     fetch(`${process.env.baseUrl}/verify-user`, {
       headers: { Authorization: `Bearer ${token.value}` }
     })
       .then(res => res.json())
       .then(data => (user.value = data))
       .catch(signOut);
+  } else {
+    user.value = null;
+  }
 }
 
 export { user, token, signIn, signOut };
