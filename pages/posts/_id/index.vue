@@ -18,7 +18,7 @@
         <p>{{ p.body }}</p>
       </div>
       <Tags :tags="post.tags" />
-      <CommentForm :comments="comments" :post="post._id" />
+      <CommentForm :comments="comments" :post="post._id" :user="user" />
       <Comments :comments="comments" />
     </div>
   </div>
@@ -36,7 +36,6 @@ import Tags from "@/components/post/Tags";
 import PostDetails from "@/components/post/PostDetails";
 import PostOptions from "@/components/post/PostOptions";
 import Comments from "@/components/comment/Comments";
-
 import { user } from "@/auth/store";
 
 export default {

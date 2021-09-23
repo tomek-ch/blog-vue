@@ -1,9 +1,14 @@
 <template>
-  <form @submit="handleSubmit">
-    <input v-model="input" placeholder="Write a comment" />
-    <button>Add</button>
-    <div>{{ error }}</div>
-  </form>
+  <div>
+    <div v-if="!user || !user._id">
+      <NuxtLink to="/register">Sign up</NuxtLink> to comment
+    </div>
+    <form v-else @submit="handleSubmit">
+      <input v-model="input" placeholder="Write a comment" />
+      <button>Add</button>
+      <div>{{ error }}</div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -11,7 +16,7 @@ import { ref } from "@vue/composition-api";
 import { token } from "@/auth/store";
 
 export default {
-  props: ["post", "comments"],
+  props: ["post", "comments", "user"],
   setup(props) {
     const input = ref("");
     const error = ref("");
