@@ -11,10 +11,14 @@
         >
           {{ option.text }}
         </button>
-        <NuxtLink v-else :to="option.to" data-option="true" @blur="toggle">
-          <a @click="toggle">
-            {{ option.text }}
-          </a>
+        <NuxtLink
+          v-else
+          :to="option.to"
+          data-option="true"
+          @blur.native="toggle"
+          @click.native="toggle"
+        >
+          {{ option.text }}
         </NuxtLink>
       </div>
     </div>
@@ -32,6 +36,7 @@ export default {
     const toggle = () => (open.value = !open.value);
 
     const hide = e => {
+      console.log(e.relatedTarget);
       if (!e.relatedTarget?.dataset.option) {
         open.value = false;
       }
