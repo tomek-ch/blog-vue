@@ -1,5 +1,5 @@
 <template>
-  <Options :toggleText="username" :options="options" />
+  <Options :toggleText="username" :options="options" textToggle="true" />
 </template>
 
 <script>

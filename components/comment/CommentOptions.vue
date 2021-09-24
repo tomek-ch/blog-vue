@@ -1,5 +1,5 @@
 <template>
-  <Options toggleText="..." :options="options" />
+  <Options icon="true" :options="options" />
 </template>
 
 <script>
