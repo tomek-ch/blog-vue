@@ -5,9 +5,10 @@
       <h2>{{ user.firstName }}</h2>
       <p>{{ user.description }}</p>
       <div class="posts">
-        <PostThumbnail v-for="post in user.posts" :key="post.id" :post="post" />
+        <PostThumbnail v-for="post in posts" :key="post.id" :post="post" />
       </div>
     </div>
+    <div v-else>Loading...</div>
   </div>
 </template>
 
@@ -19,16 +20,21 @@ export default {
   components: { PostThumbnail },
   setup() {
     const user = ref(null);
+    const posts = ref([]);
+
     const route = useRoute();
     const username = computed(() => route.value.params.username);
 
     useFetch(async () => {
-      user.value = await (
+      const data = await (
         await fetch(`${process.env.baseUrl}/users/${username.value}`)
       ).json();
+
+      user.value = data.user;
+      posts.value = data.posts;
     });
 
-    return { user };
+    return { user, posts };
   }
 };
 </script>
