@@ -161,3 +161,15 @@ input {
   background-color: var(--darker-foreground);
   transition: all 150ms;
 }
+
+.link {
+  font-weight: bold;
+  color: var(--highlight);
+  transition: all 150ms;
+  white-space: nowrap;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: var(--dark-highlight);
+}

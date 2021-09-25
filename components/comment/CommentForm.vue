@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="form-container">
     <div v-if="!user || !user._id">
-      <NuxtLink to="/register">Sign up</NuxtLink> to comment
+      <NuxtLink to="/register" class="link">Sign up</NuxtLink> to comment
     </div>
     <form v-else @submit="handleSubmit">
       <input class="input" v-model="input" placeholder="Write a comment" />
@@ -65,5 +65,9 @@ export default {
 form {
   display: flex;
   gap: 0.5em;
+}
+
+.form-container {
+  margin: 1em 0;
 }
 </style>
