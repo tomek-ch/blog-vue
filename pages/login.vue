@@ -1,12 +1,12 @@
 <template>
   <form @submit="handleSubmit">
     <label>
-      Username:
-      <input v-model="username" autofocus="autofocus" />
+      Username
+      <input v-model="username" autofocus="autofocus" class="input" />
     </label>
     <label>
-      Password:
-      <input v-model="password" type="password" />
+      Password
+      <input v-model="password" type="password" class="input" />
     </label>
     <button class="btn-primary" :disabled="!username || !password">
       Log in

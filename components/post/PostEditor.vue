@@ -1,7 +1,12 @@
 <template>
   <div>
-    <input placeholder="title" v-model="title" autofocus="autofocus" />
-    <textarea v-model="body" placeholder="Body" />
+    <input
+      class="input"
+      placeholder="title"
+      v-model="title"
+      autofocus="autofocus"
+    />
+    <textarea class="input" v-model="body" placeholder="Body" />
     <TagEditor :tags="tags" @add-tag="addTag" @delete-tag="deleteTag" />
     <button class="btn-primary" @click="createPost" :disabled="!title || !body">
       {{ label }}

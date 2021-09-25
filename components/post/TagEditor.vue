@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit="handleSubmit">
-      <input v-model="input" placeholder="Add a tag" />
+      <input class="input" v-model="input" placeholder="Add a tag" />
       <button class="btn" :disabled="!input || tags.includes(input)">
         Add
       </button>

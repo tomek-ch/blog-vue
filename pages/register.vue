@@ -1,20 +1,20 @@
 <template>
   <form @submit="handleSubmit">
     <label>
-      Username:
-      <input v-model="username" autofocus="autofocus" />
+      Username <span class="required"></span>
+      <input class="input" v-model="username" autofocus="autofocus" />
     </label>
     <label>
-      First name:
-      <input v-model="firstName" />
+      First name <span class="required"></span>
+      <input class="input" v-model="firstName" />
     </label>
     <label>
-      Last name:
-      <input v-model="lastName" />
+      Last name
+      <input class="input" v-model="lastName" />
     </label>
     <label>
-      Password:
-      <input v-model="password" type="password" />
+      Password <span class="required"></span>
+      <input class="input" v-model="password" type="password" />
     </label>
     <button
       class="btn-primary"
