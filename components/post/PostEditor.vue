@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="editor">
     <input
       class="input"
-      placeholder="title"
+      placeholder="Title"
       v-model="title"
       autofocus="autofocus"
     />
@@ -83,4 +83,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.input {
+  margin: 0.5em 0;
+}
+
+.btn-primary {
+  margin-top: 0.5em;
+}
+</style>

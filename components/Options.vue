@@ -130,7 +130,8 @@ export default {
 .text-toggle {
   width: unset;
   height: unset;
-  padding: 0.5em 1em;
+  padding: 0.5em;
+  padding-left: 1em;
 }
 
 .toggle:hover {

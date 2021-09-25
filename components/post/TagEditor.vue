@@ -35,4 +35,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+form {
+  display: flex;
+  gap: 0.5em;
+}
+</style>

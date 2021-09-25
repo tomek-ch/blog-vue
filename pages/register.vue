@@ -1,5 +1,5 @@
 <template>
-  <form @submit="handleSubmit">
+  <form @submit="handleSubmit" class="form">
     <label>
       Username <span class="required"></span>
       <input class="input" v-model="username" autofocus="autofocus" />
