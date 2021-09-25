@@ -10,6 +10,7 @@
 <script>
 import PostEditor from "@/components/post/PostEditor";
 import { useRoute, computed, useFetch, ref } from "@nuxtjs/composition-api";
+import useProtectedRoute from "@/composables/useProtectedRoute";
 
 export default {
   components: { PostEditor },
@@ -25,6 +26,7 @@ export default {
       post.value = data.post;
     });
 
+    useProtectedRoute();
     return {
       post,
       fetchState

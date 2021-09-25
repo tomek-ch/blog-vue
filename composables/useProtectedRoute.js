@@ -3,9 +3,8 @@ import { useRouter, watchEffect } from "@nuxtjs/composition-api";
 
 const useProtectedRoute = () => {
   const router = useRouter();
-
   watchEffect(() => {
-    if (!user) {
+    if (!user.value) {
       router.replace("/login");
     }
   });
