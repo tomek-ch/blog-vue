@@ -40,7 +40,7 @@ export default {
       const post = {
         title: title.value,
         paragraphs: [{ body: body.value }],
-        excerpt: limitLength(body.value),
+        excerpt: limitLength(body.value, 100),
         isPublished: true,
         tags: tags.value
       };
