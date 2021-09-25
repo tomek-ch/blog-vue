@@ -2,7 +2,9 @@
   <div>
     <h1>Posts tagged {{ tag }}</h1>
     <div v-if="$fetchState.error">There was a network error</div>
-    <PostThumbnail v-for="post in posts" :key="post.id" :post="post" />
+    <div class="posts">
+      <PostThumbnail v-for="post in posts" :key="post.id" :post="post" />
+    </div>
   </div>
 </template>
 

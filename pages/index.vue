@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>Hello</h1>
+  <div class="posts">
     <div v-if="$fetchState.error">There was a network error</div>
     <PostThumbnail v-for="post in posts" :key="post.id" :post="post" />
   </div>

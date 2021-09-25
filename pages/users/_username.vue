@@ -4,7 +4,9 @@
     <div v-else-if="user">
       <h2>{{ user.firstName }}</h2>
       <p>{{ user.description }}</p>
-      <PostThumbnail v-for="post in user.posts" :key="post.id" :post="post" />
+      <div class="posts">
+        <PostThumbnail v-for="post in user.posts" :key="post.id" :post="post" />
+      </div>
     </div>
   </div>
 </template>

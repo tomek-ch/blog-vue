@@ -8,6 +8,8 @@ body {
   font-family: sans-serif;
   max-width: 600px;
   margin: auto;
+  padding: 1em 2em;
+  line-height: 1.5;
 }
 
 :root {
@@ -133,4 +135,11 @@ input {
   content: "*";
   color: var(--accent);
   font-weight: bold;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  margin: 2em 0;
 }
