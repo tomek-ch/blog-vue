@@ -1,6 +1,6 @@
 <template>
   <div>
-    <textarea v-model="input" autofocus="autofocus" />
+    <textarea v-model="input" autofocus="autofocus" class="input" />
     <button @click="save" class="btn-primary">Save</button>
     <button @click="cancel" class="btn">Cancel</button>
   </div>
@@ -42,4 +42,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.input {
+  margin-bottom: 0.5em;
+}
+</style>

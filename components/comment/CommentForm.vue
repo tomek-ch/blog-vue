@@ -4,7 +4,7 @@
       <NuxtLink to="/register">Sign up</NuxtLink> to comment
     </div>
     <form v-else @submit="handleSubmit">
-      <input v-model="input" placeholder="Write a comment" />
+      <input class="input" v-model="input" placeholder="Write a comment" />
       <button class="btn" :disabled="!input">Add</button>
       <div>{{ error }}</div>
     </form>
@@ -61,4 +61,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+form {
+  display: flex;
+  gap: 0.5em;
+}
+</style>

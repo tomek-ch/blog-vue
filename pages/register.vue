@@ -1,11 +1,11 @@
 <template>
   <form @submit="handleSubmit" class="form">
     <label>
-      Username <span class="required"></span>
+      Username <span class="required" />
       <input class="input" v-model="username" autofocus="autofocus" />
     </label>
     <label>
-      First name <span class="required"></span>
+      First name <span class="required" />
       <input class="input" v-model="firstName" />
     </label>
     <label>
@@ -13,7 +13,7 @@
       <input class="input" v-model="lastName" />
     </label>
     <label>
-      Password <span class="required"></span>
+      Password <span class="required" />
       <input class="input" v-model="password" type="password" />
     </label>
     <button
