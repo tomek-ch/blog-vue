@@ -143,3 +143,21 @@ input {
   gap: 4em;
   margin: 2em 0;
 }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  width: fit-content;
+}
+
+.tag {
+  padding: 0.2em 0.5em;
+  background-color: var(--foreground);
+  border-radius: var(--radius);
+}
+
+.tag:hover {
+  background-color: var(--darker-foreground);
+  transition: all 150ms;
+}
