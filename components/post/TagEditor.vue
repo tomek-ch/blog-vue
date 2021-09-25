@@ -2,7 +2,10 @@
   <div>
     <form @submit="handleSubmit" class="tag-form">
       <input class="input" v-model="input" placeholder="Add a tag" />
-      <button class="btn" :disabled="!input || tags.includes(input)">
+      <button
+        class="btn"
+        :disabled="!input || tags.includes(input) || tags.length === 5"
+      >
         Add
       </button>
     </form>
