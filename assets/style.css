@@ -33,6 +33,11 @@ body {
   --outline: 0 0 0 2px var(--highlight);
 }
 
+::selection {
+  background-color: var(--highlight);
+  color: var(--background);
+}
+
 .details {
   font-size: 0.9em;
   color: var(--light-text);
