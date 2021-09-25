@@ -11,26 +11,28 @@
       <ArrowDown v-if="textToggle" :flipped="open" />
     </button>
     <div v-if="open" class="options">
-      <div v-for="option in options" :key="option.text" class="option">
+      <div v-for="{ onClick, text, to } in options" :key="text">
         <button
-          v-if="option.onClick"
+          class="option"
+          v-if="onClick"
           data-option="true"
           @blur="hide"
           @click="
             hide();
-            option.onClick();
+            onClick();
           "
         >
-          {{ option.text }}
+          {{ text }}
         </button>
         <NuxtLink
+          class="option"
           v-else
-          :to="option.to"
+          :to="to"
           data-option="true"
           @blur.native="hide"
           @click.native="hide"
         >
-          {{ option.text }}
+          {{ text }}
         </NuxtLink>
       </div>
     </div>
@@ -107,6 +109,8 @@ export default {
   text-align: left;
   color: black;
   padding: 0.5em 1em;
+  width: 100%;
+  display: block;
 }
 
 .option:hover {

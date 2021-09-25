@@ -8,8 +8,8 @@ import { token } from "@/auth/store";
 
 export default {
   components: { Options },
-  props: ["id", "handleDelete", "handleDelete", "toggleEditable"],
-  emits: ["delete-comment"],
+  props: ["id", "handleDelete"],
+  emits: ["delete-comment", "toggle-editable"],
   setup(props, context) {
     const deleteComment = async () => {
       const res = await fetch(`${process.env.baseUrl}/comments/${props.id}`, {
@@ -26,7 +26,13 @@ export default {
 
     return {
       options: [
-        { text: "Edit", onClick: props.toggleEditable },
+        {
+          text: "Edit",
+          onClick: () => {
+            console.log("emit");
+            context.emit("toggle-editable");
+          }
+        },
         {
           text: "Delete",
           onClick: deleteComment

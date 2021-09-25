@@ -9,11 +9,11 @@
         {{ comment.time }}
       </div>
       <CommentOptions
-        v-if="comment.author._id === user._id"
-        :toggleEditable="toggleEditable"
+        v-if="user && comment.author._id === user._id"
         :id="comment._id"
         :handleDelete="handleDelete"
         @delete-comment="$emit('delete-comment')"
+        @toggle-editable="toggleEditable"
       />
     </div>
     <CommentEditor
@@ -39,7 +39,10 @@ export default {
   emits: ["delete-comment", "edit-comment"],
   setup(props) {
     const isEditable = ref(false);
-    const toggleEditable = () => (isEditable.value = !isEditable.value);
+    const toggleEditable = () => {
+      console.log("toggle");
+      isEditable.value = !isEditable.value;
+    };
 
     const handleDelete = () =>
       (props.comments = props.comments.filter(
