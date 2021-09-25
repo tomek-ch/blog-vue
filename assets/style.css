@@ -108,6 +108,18 @@ input {
   background-color: var(--light-highlight);
 }
 
+.btn-borderless {
+  padding: 0.5em 1em;
+  border-radius: 100px;
+  width: fit-content;
+  margin: auto;
+}
+
+.btn-borderless:hover {
+  background-color: var(--light-foreground);
+  transition: all 150ms;
+}
+
 .form {
   margin: 2em auto;
   max-width: 17em;
