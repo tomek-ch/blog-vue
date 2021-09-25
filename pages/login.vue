@@ -8,7 +8,9 @@
       Password:
       <input v-model="password" type="password" />
     </label>
-    <button :disabled="!username || !password">Log in</button>
+    <button class="btn-primary" :disabled="!username || !password">
+      Log in
+    </button>
     <div>{{ error }}</div>
   </form>
 </template>

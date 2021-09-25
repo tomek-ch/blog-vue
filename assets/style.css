@@ -10,9 +10,30 @@ body {
   margin: auto;
 }
 
+:root {
+  --background: white;
+  --foreground: #ddd;
+  --light-foreground: #efefef;
+  --darker-foreground: #ccc;
+  --light-text: #666;
+
+  --highlight: #1b7eff;
+  --dark-highlight: #1a73e8;
+  --light-highlight: rgb(154, 205, 255);
+
+  --accent: orangered;
+  --accent-light: rgb(253, 144, 105);
+  --accent-dark: rgb(221, 60, 1);
+
+  --shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  --radius: 5px;
+  --border: 1px solid var(--foreground);
+  --outline: 0 0 0 2px var(--highlight);
+}
+
 .details {
   font-size: 0.9em;
-  color: #666;
+  color: var(--light-text);
 }
 
 .options-section {
@@ -32,4 +53,40 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.btn {
+  padding: 0.5em 1em;
+  border: 1px solid var(--foreground);
+  border-radius: 100px;
+  width: fit-content;
+  white-space: nowrap;
+  background-color: white;
+  transition: all 150ms;
+}
+
+.btn:hover {
+  border-color: var(--light-text);
+}
+
+.btn:disabled {
+  border-color: var(--foreground);
+  color: var(--darker-foreground);
+}
+
+.btn-primary {
+  border-radius: 100px;
+  background-color: var(--highlight);
+  padding: 0.5em 1em;
+  color: white;
+  width: fit-content;
+  transition: all 150ms;
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-highlight);
+}
+
+.btn-primary:disabled {
+  background-color: var(--light-highlight);
 }

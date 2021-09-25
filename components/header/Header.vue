@@ -10,7 +10,7 @@
       <NuxtLink to="/login">
         Log in
       </NuxtLink>
-      <NuxtLink to="/register">
+      <NuxtLink to="/register" class="btn-primary">
         Register
       </NuxtLink>
     </div>

@@ -1,8 +1,8 @@
 <template>
   <div>
     <textarea v-model="input" autofocus="autofocus" />
-    <button @click="save">Save</button>
-    <button @click="cancel">Cancel</button>
+    <button @click="save" class="btn-primary">Save</button>
+    <button @click="cancel" class="btn">Cancel</button>
   </div>
 </template>
 

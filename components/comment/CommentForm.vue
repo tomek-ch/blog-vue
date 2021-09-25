@@ -5,7 +5,7 @@
     </div>
     <form v-else @submit="handleSubmit">
       <input v-model="input" placeholder="Write a comment" />
-      <button :disabled="!input">Add</button>
+      <button class="btn" :disabled="!input">Add</button>
       <div>{{ error }}</div>
     </form>
   </div>

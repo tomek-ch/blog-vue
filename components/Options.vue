@@ -81,12 +81,12 @@ export default {
   flex-direction: column;
   padding: 0.5em 0;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
   width: fit-content;
   position: absolute;
   right: 0em;
   white-space: nowrap;
-  background-color: white;
+  background-color: var(--background);
   overflow: hidden;
   z-index: 1;
   animation: popUp 150ms;
@@ -114,8 +114,8 @@ export default {
 }
 
 .option:hover {
-  background-color: dodgerblue;
-  color: white;
+  background-color: var(--highlight);
+  color: var(--background);
 }
 
 .toggle {
@@ -134,7 +134,7 @@ export default {
 }
 
 .toggle:hover {
-  background-color: #efefef;
+  background-color: var(--light-foreground);
   transition: all 150ms;
 }
 
@@ -144,6 +144,6 @@ export default {
 
 .open-toggle-text,
 .open-toggle-text:hover {
-  background-color: #ddd;
+  background-color: var(--foreground);
 }
 </style>

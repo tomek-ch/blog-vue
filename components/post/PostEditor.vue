@@ -3,7 +3,7 @@
     <input placeholder="title" v-model="title" autofocus="autofocus" />
     <textarea v-model="body" placeholder="Body" />
     <TagEditor :tags="tags" @add-tag="addTag" @delete-tag="deleteTag" />
-    <button @click="createPost" :disabled="!title || !body">
+    <button class="btn-primary" @click="createPost" :disabled="!title || !body">
       {{ label }}
     </button>
     <div>{{ error }}</div>

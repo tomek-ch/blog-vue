@@ -2,7 +2,9 @@
   <div>
     <form @submit="handleSubmit">
       <input v-model="input" placeholder="Add a tag" />
-      <button :disabled="!input || tags.includes(input)">Add</button>
+      <button class="btn" :disabled="!input || tags.includes(input)">
+        Add
+      </button>
     </form>
     <div v-for="tag in tags" :key="tag">
       <div>
