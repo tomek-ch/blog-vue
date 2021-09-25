@@ -28,10 +28,7 @@ export default {
       options: [
         {
           text: "Edit",
-          onClick: () => {
-            console.log("emit");
-            context.emit("toggle-editable");
-          }
+          onClick: () => context.emit("toggle-editable")
         },
         {
           text: "Delete",
