@@ -47,7 +47,7 @@ export default {
 
       try {
         const res = await fetch(
-          `${process.env.baseUrl}/posts/${props.post._id || ""}`,
+          `${process.env.baseUrl}/posts/${props?.post?._id || ""}`,
           {
             method: props.method,
             body: JSON.stringify(post),
@@ -58,10 +58,11 @@ export default {
           }
         );
 
+        const data = await res.json();
         if (res.ok) {
-          router.push(`/posts/${props.post._id}`);
+          router.push(`/posts/${data._id}`);
         } else {
-          error.value = (await res.json())[0];
+          error.value = data[0];
         }
       } catch (e) {
         console.log(e);
