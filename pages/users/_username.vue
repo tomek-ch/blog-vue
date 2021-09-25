@@ -2,8 +2,10 @@
   <div>
     <div v-if="$fetchState.error">There was a network error</div>
     <div v-else-if="user">
-      <h2>{{ user.firstName }}</h2>
+      <h1>{{ user.firstName }}</h1>
+      <h2 class="details username">{{ user.username }}</h2>
       <p>{{ user.description }}</p>
+      <h2 class="posts-label">Latest posts:</h2>
       <div class="posts">
         <PostThumbnail v-for="post in posts" :key="post.id" :post="post" />
       </div>
@@ -38,3 +40,17 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+h1 {
+  margin-top: 1em;
+}
+
+.username {
+  margin: 0.5em 0;
+}
+
+.posts-label {
+  margin-top: 2em;
+}
+</style>
