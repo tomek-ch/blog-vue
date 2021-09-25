@@ -18,3 +18,13 @@ export default {
   components: { Tags, PostDetails }
 };
 </script>
+
+<style scoped>
+p {
+  margin: 1em 0;
+}
+
+h2 {
+  margin-bottom: 0.5em;
+}
+</style>
