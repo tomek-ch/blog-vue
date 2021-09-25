@@ -3,7 +3,7 @@
     <div v-if="$fetchState.error">
       Error
     </div>
-    <div v-else-if="post">
+    <div v-else-if="post" class="post">
       <h1>{{ post.title }}</h1>
       <div class="options-section">
         <PostDetails :post="post" />
@@ -76,3 +76,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 2em;
+}
+</style>
