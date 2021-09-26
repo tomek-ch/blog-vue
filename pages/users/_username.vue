@@ -2,7 +2,7 @@
   <div>
     <div v-if="$fetchState.error">There was a network error</div>
     <div v-else-if="user">
-      <h1>{{ user.firstName }}</h1>
+      <h1>{{ user.firstName }} {{ user.lastName }}</h1>
       <h2 class="details username">{{ user.username }}</h2>
       <p>{{ user.description }}</p>
       <h2 class="posts-label">Latest posts:</h2>
